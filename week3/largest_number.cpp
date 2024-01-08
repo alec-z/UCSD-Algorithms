@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
 using std::vector;
 using std::string;
@@ -17,10 +18,15 @@ bool less(string x, string y) {
     }
   }
   if (lx < ly) {
-    return less(y, y.substr(l, ly - l));
+    return less(y, y.substr(l, ly - l) + y.substr(0, l));
+  } else if (lx > ly) {
+    return less(x.substr(l, lx-l) + x.substr(0, l), x);
   } else {
-    return less(x.substr(l, lx-l), x);
+    return false;
   }
+}
+void test_solution() {
+  assert(less(string("123"), string("1")) == true);
 }
 
 string largest_number(vector<string> a) {
@@ -36,6 +42,7 @@ string largest_number(vector<string> a) {
 }
 
 int main() {
+  //test_solution();
   int n;
   std::cin >> n;
   vector<string> a(n);
