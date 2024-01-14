@@ -14,7 +14,7 @@ In my initial approach, I adhered closely to the textbook's guidelines. "Good st
     3. Minimize distance: min_distance = min(left_part_minimal_distance, right_part_minimal_distance)
     4. Consider the points in the strip (pivot - min_distance, pivot + min_distance). The minimal distance of input points is min(min_distance,  minimal_distance of points in the strip).
     5. Finding the minimal distance in the strip seems like an $O(N^2)$ task. However, reordering the points in the strip by y-coordinate reduces the runtime to $O(N\log{N})$. According to the book:  you can prove that you only need check pair(i, j) which i<j<=i+7, more detail seem the picture from the "toolbox_statement":
-    > ![prove](./closest_prove.png) 
+    > ![prove](https://github.com/alec-z/UCSD-Algorithms/blob/main/week4/7_closest_points/closest_prove.png) 
 ## Interesting Points and Summaries:
 I implemented my minimal distance finding as follows:
 
